@@ -42,6 +42,8 @@ cd my-blog
 | 找不到主题 | 执行 `git submodule update --init --recursive` |
 | 本地预览端口占用 | 执行 `.\scripts\hugo.ps1 server -D --port 1314` |
 
+当前电脑的 Git 已在本仓库内接入系统现有代理；配置不随源码上传。如果以后停用代理，可执行 `git config --local --unset http.proxy`，恢复 Git 默认连接方式。
+
 ## 主题升级、回退与域名
 
 主题不必频繁升级。需要升级时，先执行 `git submodule update --remote themes/blowfish`，再预览并构建；查看主题 `config/_default/module.toml` 的 Hugo 兼容范围，有需要再修改 `.hugo-version`。确认后提交子模块指针和配置。
