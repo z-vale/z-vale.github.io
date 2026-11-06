@@ -8,7 +8,6 @@ robots = 'index, follow'
 disableImageOptimization = false
 disableImageOptimizationMD = true
 disableImageZoom = false
-smartTOC = false
 
 [header]
   layout = 'floating'

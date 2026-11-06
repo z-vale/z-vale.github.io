@@ -27,9 +27,7 @@ cd D:\develop\workspace\my-blog
 | 网站名、个人介绍 | `config/_default/languages.zh-cn.toml` |
 | 导航 | `config/_default/menus.zh-cn.toml` |
 | 主题布局、搜索、图片放大等开关 | `config/_default/params.toml` |
-| 目录模板的局部覆盖 | `layouts/partials/toc.html` |
-| 目录字号与样式 | `assets/css/custom.css` |
-| 子目录展开、收起 | `assets/js/toc.js` |
+| 分类切换模板 | `layouts/partials/category-browser.html` |
 
 ## 操作指南
 
@@ -37,4 +35,4 @@ cd D:\develop\workspace\my-blog
 - [搭建、部署与维护](docs/deployment.md)
 - [写文章与发布](docs/writing.md)
 
-网站使用 Blowfish 的悬浮导航、居中个人介绍和文章列表布局，参考 XeriChen 博客的简洁风格。主题通过 Git 子模块固定版本，目录使用项目内的小范围扩展，保留 14px 字号与分级折叠。IDEA 文章和 236 张本地配图保存在同一文件夹。
+网站使用 Blowfish 的悬浮导航、居中个人介绍和文章列表布局，参考 XeriChen 博客的简洁风格。主题通过 Git 子模块固定版本，字体、样式和文章目录使用主题默认效果；项目内保留分类切换和个人图标。IDEA 文章和 236 张本地配图保存在同一文件夹。
