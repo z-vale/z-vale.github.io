@@ -1,0 +1,37 @@
+{{ .Scratch.Set "scope" "list" }}
+{{ $isAll := eq .Kind "taxonomy" }}
+{{ $allArticles := where site.RegularPages "Section" "posts" }}
+{{ $articles := $allArticles }}
+{{ if not $isAll }}
+  {{ $articles = where .RegularPages "Section" "posts" }}
+{{ end }}
+
+<header class="mt-5 vale-category-header">
+  <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">文章分类</h1>
+  <p class="vale-category-description">沿着主题，找到想读的内容。</p>
+  <nav class="vale-category-nav" aria-label="文章分类">
+    <a href="{{ "categories/" | relURL }}"{{ if $isAll }} aria-current="page"{{ end }}>
+      <span>全部文章</span><span class="vale-category-count">{{ len $allArticles }}</span>
+    </a>
+    {{ range site.Taxonomies.categories.Alphabetical }}
+      <a href="{{ .Page.RelPermalink }}"{{ if eq $.RelPermalink .Page.RelPermalink }} aria-current="page"{{ end }}>
+        <span>{{ .Page.Title }}</span><span class="vale-category-count">{{ .Count }}</span>
+      </a>
+    {{ end }}
+  </nav>
+</header>
+
+<section class="vale-category-results" aria-labelledby="category-results-heading">
+  <h2 id="category-results-heading" class="text-2xl font-bold text-neutral-900 dark:text-neutral">
+    {{ if $isAll }}全部文章{{ else }}{{ .Title }}{{ end }}
+    <span class="vale-category-total">共 {{ len $articles }} 篇</span>
+  </h2>
+  <div class="space-y-10 w-full">
+    {{ range (.Paginate $articles.ByDate.Reverse).Pages }}
+      {{ partial "article-link/simple.html" . }}
+    {{ else }}
+      <p>这里还没有文章。</p>
+    {{ end }}
+  </div>
+</section>
+{{ partial "pagination.html" . }}

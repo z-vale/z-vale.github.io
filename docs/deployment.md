@@ -47,7 +47,9 @@ cd my-blog
 
 ## 外观维护、回退与域名
 
-修改外观时优先调整 `config/_default/params.toml`。目录样式在 `assets/css/custom.css`，折叠交互在 `assets/js/toc.js`；模板覆盖在 `layouts/partials/`，不直接修改 `themes/blowfish`。先预览和构建，再推送。
+修改外观时优先调整 `config/_default/params.toml`。目录与分类样式在 `assets/css/custom.css`，目录折叠交互在 `assets/js/toc.js`；模板覆盖在 `layouts/partials/` 和 `layouts/categories/`，不直接修改 `themes/blowfish`。分类页面复用 Blowfish 的文章列表和分页。先预览和构建，再推送。
+
+`themes/blowfish` 是独立的官方主题 Git 子模块，拥有自己的提交历史。IDEA 同时展示两个仓库时，会看见主题作者、dependabot 和主题合并记录；在 Git 日志的仓库筛选中只选择博客根目录 `my-blog`，即可查看博客自己的提交。这些主题记录不属于博客主分支，无需清理或重写历史。
 
 需要升级主题时执行 `git submodule update --remote themes/blowfish`，检查主题声明的 Hugo 兼容范围并验证页面，再提交子模块指针。需要升级 Hugo 时修改 `.hugo-version`。
 
