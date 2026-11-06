@@ -1,2 +1,54 @@
-github = 'https://github.com/z-vale'
-description = '记录技术实践、学习笔记与生活。'
+colorScheme = 'blowfish'
+defaultAppearance = 'light'
+autoSwitchAppearance = true
+enableSearch = true
+enableCodeCopy = true
+mainSections = ['posts']
+robots = 'index, follow'
+disableImageOptimization = false
+disableImageOptimizationMD = true
+disableImageZoom = false
+smartTOC = false
+
+[header]
+  layout = 'floating'
+
+[footer]
+  showCopyright = true
+  showThemeAttribution = true
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+[homepage]
+  layout = 'profile'
+  showRecent = true
+  showRecentItems = 5
+  showMoreLink = true
+  showMoreLinkDest = '/posts/'
+  cardView = false
+
+[article]
+  showDate = true
+  showDateUpdated = false
+  showAuthor = true
+  showReadingTime = true
+  showWordCount = true
+  showTableOfContents = true
+  showTaxonomies = true
+  showBreadcrumbs = true
+  showPagination = true
+  showRelatedContent = false
+  showEdit = false
+  showComments = false
+
+[list]
+  showSummary = true
+  showCards = false
+  groupByYear = true
+  cardView = false
+
+[taxonomy]
+  showTermCount = true
+
+[term]
+  groupByYear = true

@@ -6,7 +6,7 @@ Markdown 文章 → Hugo 生成网页 → GitHub Actions 构建 → GitHub Pages
 
 使用公开仓库 `z-vale/z-vale.github.io`，默认地址为 https://z-vale.github.io/ 。无需自行维护服务器或数据库；独立域名以后可以绑定。
 
-Hugo 版本由 `.hugo-version` 固定；本地 `scripts/hugo.ps1` 和云端工作流共用它。当前为 Extended 0.167.0。页面模板位于 `layouts/`，样式和交互位于 `assets/`，不依赖第三方主题。
+Hugo 版本由 `.hugo-version` 固定；本地 `scripts/hugo.ps1` 和云端工作流共用它。当前为 Extended 0.167.0。网站使用 Blowfish 主题，固定到仓库记录的子模块提交；项目内仅覆盖图标、目录模板和目录交互。主题设置在 `config/_default/params.toml`。
 
 ## 换电脑恢复
 
@@ -14,12 +14,14 @@ Hugo 版本由 `.hugo-version` 固定；本地 `scripts/hugo.ps1` 和云端工�
 
 ```powershell
 cd D:\develop\workspace
-git clone https://github.com/z-vale/z-vale.github.io.git my-blog
+git clone --recurse-submodules https://github.com/z-vale/z-vale.github.io.git my-blog
 cd my-blog
 .\scripts\hugo.ps1 server -D
 ```
 
 首次运行下载 Hugo 并验证 SHA-256，保存到不上传的 `.local/` 文件夹。
+
+如果克隆时没有下载主题，执行 `git submodule update --init --recursive`。
 
 若 Windows 提示下载的脚本被阻止，确认来源后可执行 `Unblock-File .\scripts\hugo.ps1`；不要为此修改整台电脑的脚本执行策略。公司策略禁止运行脚本时，使用符合 `.hugo-version` 的官方 Hugo Extended 程序执行文档中的 Hugo 参数。
 
@@ -30,7 +32,7 @@ cd my-blog
 - 触发：推送到 `main`，或 Actions → Deploy blog → Run workflow 手动触发。
 - 成功标志：构建和部署均为绿色，Pages 页面显示网站地址。
 
-工作流会获取源码，安装并校验固定版本的 Hugo，然后构建正式网页。`public/` 是生成结果，不提交到源码仓库。推送前先运行 `.\scripts\hugo.ps1 --gc --minify`，确认没有错误。
+工作流会获取源码和主题子模块，安装并校验固定版本的 Hugo，然后构建正式网页。`public/` 是生成结果，不提交到源码仓库。推送前先运行 `.\scripts\hugo.ps1 --gc --minify`，确认没有错误。
 
 ## 常见情况
 
@@ -45,7 +47,9 @@ cd my-blog
 
 ## 外观维护、回退与域名
 
-修改外观时，编辑 `layouts/`、`assets/css/site.css` 和 `assets/js/site.js`，先本地预览，再构建并推送。需要升级 Hugo 时修改 `.hugo-version` 并检查页面。
+修改外观时优先调整 `config/_default/params.toml`。目录样式在 `assets/css/custom.css`，折叠交互在 `assets/js/toc.js`；模板覆盖在 `layouts/partials/`，不直接修改 `themes/blowfish`。先预览和构建，再推送。
+
+需要升级主题时执行 `git submodule update --remote themes/blowfish`，检查主题声明的 Hugo 兼容范围并验证页面，再提交子模块指针。需要升级 Hugo 时修改 `.hugo-version`。
 
 回退已发布内容时，用 `git revert <有问题的提交号>` 创建撤销提交，再 `git push`；保留历史，不使用强制推送。
 

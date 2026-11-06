@@ -1,4 +1,5 @@
 baseURL = 'https://z-vale.github.io/'
+theme = 'blowfish'
 defaultContentLanguage = 'zh-cn'
 timeZone = 'Asia/Shanghai'
 enableRobotsTXT = true

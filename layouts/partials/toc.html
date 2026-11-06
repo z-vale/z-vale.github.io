@@ -1,0 +1,9 @@
+{{/* Keep the theme's page layout and enhance only the table of contents. */}}
+<details open id="TOCView" class="vale-toc">
+  <summary>{{ i18n "article.table_of_contents" }}</summary>
+  <div id="toc-tools" class="toc-tools" hidden>
+    <button type="button" data-toc-expand="true">全部展开</button>
+    <button type="button" data-toc-expand="false">全部收起</button>
+  </div>
+  {{ .TableOfContents }}
+</details>

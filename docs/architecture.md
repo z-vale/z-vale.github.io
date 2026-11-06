@@ -13,19 +13,20 @@
 | Markdown | 文章内容、标题、列表、代码和图片引用 | `content/posts/` |
 | 本地图片 | 随文章保存和发布的配图 | 每篇文章的 `images/` 文件夹 |
 | Hugo | 把文章、图片和模板生成完整静态网站，也提供本地预览 | 版本见 `.hugo-version`，入口是 `scripts/hugo.ps1` |
-| 自定义模板 | 首页、文章页、分类页等结构 | `layouts/` |
-| CSS | 颜色、字体、间距和手机排版 | `assets/css/site.css` |
-| JavaScript | 搜索、明暗切换、图片放大和代码复制 | `assets/js/` |
+| Blowfish 主题 | 首页、文章页、分类页、样式和常用交互 | `themes/blowfish/`，设置在 `config/_default/params.toml` |
+| 局部模板覆盖 | 保留目录增强和自定义图标 | `layouts/partials/` |
+| 局部 CSS | 调整目录字号和折叠按钮 | `assets/css/custom.css` |
+| 局部 JavaScript | 子目录折叠、展开和锚点展开 | `assets/js/toc.js` |
 | Git / GitHub 仓库 | 记录修改历史，保存上传的源码 | `z-vale/z-vale.github.io` |
 | GitHub Actions | 推送后自动运行 Hugo，再部署生成结果 | `.github/workflows/hugo.yaml` |
 | GitHub Pages | 托管生成的网页，提供公开访问地址 | `https://z-vale.github.io/` |
 
-Blowfish 原本提供现成的模板、样式和交互；当前这三部分由项目内的自定义代码承担。Hugo 仍负责网站生成。网站不需要数据库，读者访问时直接读取已生成的文件。
+当前使用 Blowfish 提供页面模板、样式和常用交互，项目内仅对目录等少量功能做扩展。Hugo 负责网站生成。网站不需要数据库，读者访问时直接读取已生成的文件。
 
 ## 整体流程
 
 ```text
-Markdown + 本地图片 + 自定义模板/CSS/JS
+Markdown + 本地图片 + Blowfish 主题 + 局部目录扩展
                     ↓ Hugo 构建
              HTML + 图片 + CSS/JS
                     ↓ GitHub Pages

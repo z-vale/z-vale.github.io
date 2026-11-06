@@ -5,7 +5,7 @@
 - 网站：https://z-vale.github.io/
 - 源码：https://github.com/z-vale/z-vale.github.io
 - 本地目录：`D:\develop\workspace\my-blog`
-- 方案：Hugo + 自定义 Vale Notes 外观 + GitHub Pages；文章使用 Markdown，推送 `main` 后自动部署。
+- 方案：Hugo + Blowfish 主题 + GitHub Pages；文章使用 Markdown，推送 `main` 后自动部署。
 
 ## 本地预览
 
@@ -26,9 +26,10 @@ cd D:\develop\workspace\my-blog
 | 关于我 | `content/about/index.md` |
 | 网站名、个人介绍 | `config/_default/languages.zh-cn.toml` |
 | 导航 | `config/_default/menus.zh-cn.toml` |
-| 页面布局 | `layouts/` |
-| 页面样式 | `assets/css/site.css` |
-| 搜索、图片放大、代码复制 | `assets/js/site.js` |
+| 主题布局、搜索、图片放大等开关 | `config/_default/params.toml` |
+| 目录模板的局部覆盖 | `layouts/partials/toc.html` |
+| 目录字号与样式 | `assets/css/custom.css` |
+| 子目录展开、收起 | `assets/js/toc.js` |
 
 ## 操作指南
 
@@ -36,4 +37,4 @@ cd D:\develop\workspace\my-blog
 - [搭建、部署与维护](docs/deployment.md)
 - [写文章与发布](docs/writing.md)
 
-网站使用项目内的自定义模板，不依赖第三方主题。IDEA 示例采用一篇文章一个文件夹的结构，236 张图片与 Markdown 一起保存。
+网站使用 Blowfish 的悬浮导航、居中个人介绍和文章列表布局，参考 XeriChen 博客的简洁风格。主题通过 Git 子模块固定版本，目录使用项目内的小范围扩展，保留 14px 字号与分级折叠。IDEA 文章和 236 张本地配图保存在同一文件夹。

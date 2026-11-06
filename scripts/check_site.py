@@ -86,7 +86,7 @@ def main():
                     errors.append(f'{source}: missing source image {ref}')
 
     search = json.loads((output / 'index.json').read_text(encoding='utf-8'))
-    if any(not p.get('title') or not p.get('url') for p in search):
+    if any(not p.get('title') or not (p.get('url') or p.get('permalink')) for p in search):
         errors.append('Search index contains an unnamed or unlinked page')
     for error in errors:
         print(error)
