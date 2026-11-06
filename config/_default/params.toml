@@ -8,6 +8,8 @@ robots = 'index, follow'
 disableImageOptimization = false
 disableImageOptimizationMD = true
 disableImageZoom = false
+smartTOC = true
+smartTOCHideUnfocusedChildren = true
 
 [header]
   layout = 'floating'
@@ -31,6 +33,7 @@ disableImageZoom = false
   showDateUpdated = false
   showAuthor = true
   showReadingTime = true
+  showReadingProgress = true
   showWordCount = true
   showTableOfContents = true
   showTaxonomies = true

@@ -14,17 +14,18 @@
 | 本地图片 | 随文章保存和发布的配图 | 每篇文章的 `images/` 文件夹 |
 | Hugo | 把文章、图片和模板生成完整静态网站，也提供本地预览 | 版本见 `.hugo-version`，入口是 `scripts/hugo.ps1` |
 | Blowfish 主题 | 首页、文章页、分类页、样式和常用交互 | `themes/blowfish/`，设置在 `config/_default/params.toml` |
-| 局部模板覆盖 | 分类切换和自定义图标，使用主题现有样式 | `layouts/partials/`、`layouts/categories/` |
+| 局部模板覆盖 | 分类、标签切换和自定义图标，使用主题现有样式 | `layouts/partials/`、`layouts/categories/`、`layouts/tags/` |
+| 目录跟随脚本 | 将主题高亮的目录项保持在可见区域，同步移动端标记 | `assets/js/toc-follow.js`，由 `layouts/partials/extend-footer.html` 加载 |
 | Git / GitHub 仓库 | 记录修改历史，保存上传的源码 | `z-vale/z-vale.github.io` |
 | GitHub Actions | 推送后自动运行 Hugo，再部署生成结果 | `.github/workflows/hugo.yaml` |
 | GitHub Pages | 托管生成的网页，提供公开访问地址 | `https://z-vale.github.io/` |
 
-当前使用 Blowfish 提供页面模板、样式、目录和常用交互，项目内仅保留分类切换等少量模板调整，没有自定义 CSS 或目录脚本。Hugo 负责网站生成。网站不需要数据库，读者访问时直接读取已生成的文件。
+当前使用 Blowfish 提供页面模板、样式、目录和常用交互，分类和标签共用 `layouts/partials/taxonomy-browser.html` 提供切换功能，没有自定义 CSS。阅读进度条和章节高亮由主题实现，本地脚本只负责目录可见位置跟随，不接管正文滚动。Hugo 负责网站生成。网站不需要数据库，读者访问时直接读取已生成的文件。
 
 ## 整体流程
 
 ```text
-Markdown + 本地图片 + Blowfish 主题 + 分类模板
+Markdown + 本地图片 + Blowfish 主题 + 分类与标签模板
                     ↓ Hugo 构建
              HTML + 图片 + CSS/JS
                     ↓ GitHub Pages
