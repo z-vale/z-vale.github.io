@@ -47,7 +47,7 @@ cd my-blog
 
 ## 外观维护、回退与域名
 
-修改外观时优先调整 `config/_default/params.toml`。字体、样式和目录外观使用 Blowfish 默认实现，没有自定义 CSS。阅读联动配置为全局 `smartTOC = true`、`smartTOCHideUnfocusedChildren = true`，以及 `[article]` 下的 `showReadingProgress = true`；目录跟随脚本是 `assets/js/toc-follow.js`，由 `layouts/partials/extend-footer.html` 加载。分类、标签切换和个人图标的模板覆盖在 `layouts/partials/`、`layouts/categories/` 和 `layouts/tags/`；分类和标签页共用 `taxonomy-browser.html`。不直接修改 `themes/blowfish`，先预览和构建，再推送。
+修改外观时优先调整 `config/_default/params.toml`。字体、样式和目录外观使用 Blowfish 默认实现，没有自定义 CSS。阅读联动配置为全局 `smartTOC = true`、`smartTOCHideUnfocusedChildren = false`，以及 `[article]` 下的 `showReadingProgress = true`；目录跟随脚本是 `assets/js/toc-follow.js`，由 `layouts/partials/extend-footer.html` 加载。子目录默认全部展开，可提前浏览章节；若将 `smartTOCHideUnfocusedChildren` 改为 `true`，则仅自动展开当前分支，主题没有单独的子目录展开按钮。分类、标签切换和个人图标的模板覆盖在 `layouts/partials/`、`layouts/categories/` 和 `layouts/tags/`；分类和标签页共用 `taxonomy-browser.html`。不直接修改 `themes/blowfish`，先预览和构建，再推送。
 
 `themes/blowfish` 是独立的官方主题 Git 子模块，拥有自己的提交历史。IDEA 同时展示两个仓库时，会看见主题作者、dependabot 和主题合并记录；在 Git 日志的仓库筛选中只选择博客根目录 `my-blog`，即可查看博客自己的提交。这些主题记录不属于博客主分支，无需清理或重写历史。
 

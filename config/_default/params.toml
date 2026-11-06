@@ -9,7 +9,7 @@ disableImageOptimization = false
 disableImageOptimizationMD = true
 disableImageZoom = false
 smartTOC = true
-smartTOCHideUnfocusedChildren = true
+smartTOCHideUnfocusedChildren = false
 
 [header]
   layout = 'floating'
