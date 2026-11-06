@@ -1,9 +1,9 @@
-# zhangwt 的博客
+# Vale Notes
 
 记录技术实践、学习笔记与生活。
 
-- 网站：https://wt-zhangwt.github.io/
-- 源码：https://github.com/wt-zhangwt/wt-zhangwt.github.io
+- 网站：https://z-vale.github.io/
+- 源码：https://github.com/z-vale/z-vale.github.io
 - 本地目录：`D:\develop\workspace\my-blog`
 - 方案：Hugo Extended + Blowfish + GitHub Pages；文章使用 Markdown，推送 `main` 后自动部署。
 

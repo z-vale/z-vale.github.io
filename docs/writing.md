@@ -64,7 +64,7 @@ git push
 
 如果还修改了配置或样式，把对应路径一起 `git add`。提交前查看 `git status` 和 `git diff --cached`，确认只包含准备公开的文件。
 
-到 GitHub 仓库的 **Actions → Deploy blog** 查看结果。构建和部署成功后访问 https://wt-zhangwt.github.io/ ，必要时刷新浏览器缓存。
+到 GitHub 仓库的 **Actions → Deploy blog** 查看结果。构建和部署成功后访问 https://z-vale.github.io/ ，必要时刷新浏览器缓存。
 
 ## 修改、撤下与草稿
 

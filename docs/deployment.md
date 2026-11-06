@@ -4,7 +4,7 @@
 
 Markdown 文章 → Hugo 生成网页 → GitHub Actions 构建 → GitHub Pages 托管。
 
-使用公开仓库 `wt-zhangwt/wt-zhangwt.github.io`，默认地址为 https://wt-zhangwt.github.io/ 。无需自行维护服务器或数据库；独立域名以后可以绑定。
+使用公开仓库 `z-vale/z-vale.github.io`，默认地址为 https://z-vale.github.io/ 。无需自行维护服务器或数据库；独立域名以后可以绑定。
 
 Hugo 版本由 `.hugo-version` 固定；本地 `scripts/hugo.ps1` 和云端工作流共用它。当前为 Extended 0.167.0，处于主题声明的兼容范围内。主题通过 Git 子模块固定到已验证的提交，避免更新时外观意外变化。
 
@@ -14,7 +14,7 @@ Hugo 版本由 `.hugo-version` 固定；本地 `scripts/hugo.ps1` 和云端工�
 
 ```powershell
 cd D:\develop\workspace
-git clone --recurse-submodules https://github.com/wt-zhangwt/wt-zhangwt.github.io.git my-blog
+git clone --recurse-submodules https://github.com/z-vale/z-vale.github.io.git my-blog
 cd my-blog
 .\scripts\hugo.ps1 server -D
 ```
