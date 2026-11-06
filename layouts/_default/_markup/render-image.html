@@ -1,0 +1,2 @@
+{{- $src := .Destination -}}{{- $resource := .Page.Resources.Get .Destination -}}{{- if $resource }}{{ $src = $resource.RelPermalink }}{{ end -}}
+<figure class="article-figure"><a class="image-link" href="{{ $src | safeURL }}" aria-label="放大图片：{{ .Text }}"><img src="{{ $src | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async"{{ with $resource }}{{ if and (eq .ResourceType "image") (ne .MediaType.SubType "svg") }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}></a>{{ with .Title }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>

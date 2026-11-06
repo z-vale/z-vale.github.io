@@ -1,0 +1,3 @@
+{{- $title := .Title -}}
+{{- if not $title -}}{{- with .RawContent -}}{{- $match := findRE `(?m)^#\s+(.+)$` . 1 -}}{{- with $match -}}{{- $title = replaceRE `^#\s+` "" (index . 0) -}}{{- end -}}{{- end -}}{{- end -}}
+{{- return ($title | default "未命名笔记") -}}

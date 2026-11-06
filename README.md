@@ -5,7 +5,7 @@
 - 网站：https://z-vale.github.io/
 - 源码：https://github.com/z-vale/z-vale.github.io
 - 本地目录：`D:\develop\workspace\my-blog`
-- 方案：Hugo Extended + Blowfish + GitHub Pages；文章使用 Markdown，推送 `main` 后自动部署。
+- 方案：Hugo + 自定义 Vale Notes 外观 + GitHub Pages；文章使用 Markdown，推送 `main` 后自动部署。
 
 ## 本地预览
 
@@ -26,11 +26,14 @@ cd D:\develop\workspace\my-blog
 | 关于我 | `content/about/index.md` |
 | 网站名、个人介绍 | `config/_default/languages.zh-cn.toml` |
 | 导航 | `config/_default/menus.zh-cn.toml` |
-| 外观、目录、搜索等开关 | `config/_default/params.toml` |
+| 页面布局 | `layouts/` |
+| 页面样式 | `assets/css/site.css` |
+| 搜索、图片放大、代码复制 | `assets/js/site.js` |
 
 ## 操作指南
 
+- [架构与编辑发布速查](docs/architecture.md)
 - [搭建、部署与维护](docs/deployment.md)
 - [写文章与发布](docs/writing.md)
 
-主题保留原作者署名；不直接修改 `themes/blowfish`，定制样式放在 `assets/css/custom.css`。
+网站使用项目内的自定义模板，不依赖第三方主题。IDEA 示例采用一篇文章一个文件夹的结构，236 张图片与 Markdown 一起保存。

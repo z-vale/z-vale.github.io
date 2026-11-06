@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if not .IsHome }}{{ partial "page-title.html" . }} · {{ end }}{{ site.Title }}</title>
+<meta name="description" content="{{ .Description | default site.Params.description }}"><meta name="color-scheme" content="light dark">
+<link rel="canonical" href="{{ .Permalink }}">{{ partial "favicons.html" . }}
+{{ $css := slice (resources.Get "css/syntax.css") (resources.Get "css/site.css") | resources.Concat "css/vale.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ "index.xml" | relURL }}">
+<script>{{ readFile "assets/js/appearance.js" | safeJS }}</script></head><body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header"><div class="header-inner"><a class="brand" href="{{ site.Home.RelPermalink }}"><span class="brand-dot"></span>{{ site.Title }}</a><nav aria-label="主导航">{{ range site.Menus.main }}<a href="{{ .URL }}"{{ if eq $.RelPermalink .URL }} aria-current="page"{{ end }}>{{ .Name }}</a>{{ end }}</nav><div class="header-actions"><button class="icon-button" id="search-open" aria-label="搜索文章" title="搜索文章">⌕</button><button class="icon-button" id="theme-toggle" aria-label="切换明暗模式" title="切换明暗模式">◐</button></div></div></header>
+<main id="main" class="site-main">{{ block "main" . }}{{ end }}</main>
+<footer class="site-footer"><span>© {{ now.Year }} {{ site.Params.author.name }} · Vale Notes</span><span>记录、思考，慢慢积累。 <a href="{{ "index.xml" | relURL }}">RSS ↗</a></span></footer>
+<dialog id="search-dialog" class="search-dialog" aria-labelledby="search-title" data-index="{{ "index.json" | relURL }}"><div class="dialog-header"><h2 id="search-title">搜索文章</h2><button class="text-button" data-close="search-dialog" aria-label="关闭搜索">关闭 ×</button></div><label class="sr-only" for="search-input">文章标题、标签或正文关键词</label><input type="search" id="search-input" placeholder="输入标题、标签或正文关键词…" autocomplete="off"><p id="search-status" class="muted" role="status">输入关键词，查找笔记。</p><div id="search-results"></div></dialog>
+<dialog id="image-dialog" class="image-dialog" aria-label="查看原图"><button class="image-close" data-close="image-dialog" aria-label="关闭原图">关闭 ×</button><img alt=""></dialog>
+{{ $js := resources.Get "js/site.js" | minify | fingerprint }}<script src="{{ $js.RelPermalink }}" defer></script></body></html>
